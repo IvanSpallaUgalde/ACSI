@@ -1,6 +1,6 @@
 Practica 1 ACSI
-  Monitorizacion de un sistema Linux
-    -CPU usage
-    -Mem usage
-    -CPU + Mem usage
+/n  Monitorizacion de un sistema Linux
+/n    -CPU usage
+/n    -Mem usage
+/n    -CPU + Mem usage
   

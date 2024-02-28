@@ -1,8 +1,12 @@
 import csv
+from decimal import Decimal, getcontext
+
+# Ajuste de los decimales para manejar floats
+getcontext().prec=2
 
 # Nombre del archivo de entrada y salida
 nombre_archivo_entrada = "salida_top.txt"
-nombre_archivo_salida = "salida_top_rounded.csv"
+nombre_archivo_salida = "salida_top.csv"
 
 # Función para procesar una línea de la salida y extraer los valores
 def procesar_linea(linea):
@@ -19,7 +23,7 @@ def procesar_linea(linea):
     system = partes[indice_system - 1]
     idle = partes[indice_idle - 1].replace(',', '.')
     # Calcula el valor de Global
-    global_value = round((100 - float(idle)),1)
+    global_value = (Decimal(100.0) - Decimal(idle))
     # Devuelve los valores procesados
     return timestamp, user, system, global_value
 

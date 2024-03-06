@@ -2,7 +2,7 @@ import subprocess
 import time
 
 # Nombre del archivo de salida
-nombre_archivo = "salida_top.txt"
+nombre_archivo = "cpu_usage.txt"
 
 # Abre el archivo en modo escritura
 with open(nombre_archivo, "w") as archivo:
@@ -19,7 +19,7 @@ with open(nombre_archivo, "w") as archivo:
         # Escribe el timestamp y la salida en el archivo
         archivo.write(f"{timestamp} {salida.decode('utf-8')}")
 
-        # Espera 2 segundos antes de la próxima muestra
+        # Espera 2 segundos antes de la próxima muestra. El intervalo minimo es 1.84
         time.sleep(2)
 
 print(f"Los resultados se han guardado en {nombre_archivo}")

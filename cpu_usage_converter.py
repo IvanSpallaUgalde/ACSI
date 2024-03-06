@@ -5,8 +5,8 @@ from decimal import Decimal, getcontext
 getcontext().prec=2
 
 # Nombre del archivo de entrada y salida
-nombre_archivo_entrada = "salida_top.txt"
-nombre_archivo_salida = "salida_top.csv"
+nombre_archivo_entrada = "cpu_usage.txt"
+nombre_archivo_salida = "cpu_usage.csv"
 
 # Función para procesar una línea de la salida y extraer los valores
 def procesar_linea(linea):

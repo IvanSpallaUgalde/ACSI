@@ -40,5 +40,6 @@ def guardar_resultados_en_archivo(nombre_archivo, num_iteraciones):
 
 
 nombre_archivo = 'mem_usage.txt'
-num_iteraciones = 5
+num_iteraciones = 1440
 guardar_resultados_en_archivo(nombre_archivo, num_iteraciones)
+print(f"Los datos se han guardado en {nombre_archivo}")

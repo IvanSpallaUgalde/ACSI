@@ -2,7 +2,7 @@ import subprocess
 import time
 
 # Número de iteraciones
-iterations = 10  # Puedes ajustar este valor según sea necesario
+iterations = 2400  # Puedes ajustar este valor según sea necesario
 
 # Abrir un archivo para escribir la salida combinada de todas las iteraciones
 with open('cpu_mem_usage.txt', 'w') as output_file:
@@ -26,3 +26,5 @@ with open('cpu_mem_usage.txt', 'w') as output_file:
 
         # Esperar 3 segundos antes de la próxima iteración
         time.sleep(3)
+
+print(f"Los datos se han guardado en cpu_mem_usage.txt")

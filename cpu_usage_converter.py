@@ -8,6 +8,18 @@ getcontext().prec=2
 nombre_archivo_entrada = "cpu_usage.txt"
 nombre_archivo_salida = "cpu_usage.csv"
 
+def process_idle(idle):
+    parts = idle.split(',')
+    resp = ""
+    for part in parts:
+        if part == "ni":
+            pass
+        else:
+            resp = resp + f"{part}."
+
+    resp = resp[:len(resp)-1]
+    return resp
+
 # Función para procesar una línea de la salida y extraer los valores
 def procesar_linea(linea):
     # Separa la línea en partes usando los espacios como delimitador
@@ -21,8 +33,10 @@ def procesar_linea(linea):
     # Extrae los valores de User, System e Idle
     user = partes[indice_user - 1]
     system = partes[indice_system - 1]
-    idle = partes[indice_idle - 1].replace(',', '.')
+    idle = partes[indice_idle - 1]
+    idle = process_idle(idle)
     # Calcula el valor de Global
+    idle = float(idle)
     global_value = (Decimal(100.0) - Decimal(idle))
     # Devuelve los valores procesados
     return timestamp, user, system, global_value
@@ -43,4 +57,4 @@ with open(nombre_archivo_salida, "w", newline="") as salida_csv:
         # Escribe los valores en el archivo CSV
         escritor_csv.writerow([timestamp, user, system, global_value])
 
-print(f"Los datos se han guardado en {nombre_archivo_salida}")
+print(f"Conversion de {nombre_archivo_entrada} a {nombre_archivo_salida} exitosa")

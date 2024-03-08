@@ -22,10 +22,10 @@ with open(input_name, "r") as input:
 with open(output_name, "w") as output:
     writer = csv.writer(output)
 
-    writer.writerow(["Timestamp", "Capacidad disponible", "Capacidad utilizada", "% Memoria utilizada"])
+    writer.writerow(["Timestamp", "Capacidad disponible(KB)", "Capacidad utilizada(KB)", "% Memoria utilizada"])
 
     for line in lines:
         timestamp, free_mem, used_mem, mem_percent = process_line(line)
         writer.writerow([timestamp, free_mem, used_mem, mem_percent])
 
-print(f"Los datos se han guardado en {output_name}")
+print(f"Conversion de {input_name} a {output_name} exitosa")

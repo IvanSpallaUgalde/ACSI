@@ -38,6 +38,7 @@ def procesar_linea(linea):
     # Calcula el valor de Global
     idle = float(idle)
     global_value = (Decimal(100.0) - Decimal(idle))
+    global_value = str(global_value).replace(".",",")
     # Devuelve los valores procesados
     return timestamp, user, system, global_value
 

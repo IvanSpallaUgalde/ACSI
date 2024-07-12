@@ -33,6 +33,7 @@ def process_cpu_line(line):
     idle = float(idle)
     # Calcula el valor de Global
     global_value = (Decimal(100.0) - Decimal(idle))
+    global_value = str(global_value).replace(".",",")
     # Devuelve los valores procesados
     return global_value
 
@@ -45,6 +46,7 @@ def process_mem_line(line):
     capacidad_usada = partes[7].replace(',', '.')
     capacidad_usada = round((float(capacidad_usada) * factor)*1000,2)
     mem_usada = Decimal(float(capacidad_usada)/float(capacidad_total))*100
+    mem_usada = str(mem_usada).replace(".",",")
 
 
     return capacidad_usada, mem_usada
